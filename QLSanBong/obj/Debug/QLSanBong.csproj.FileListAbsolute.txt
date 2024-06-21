@@ -1,0 +1,10 @@
+D:\Cong_Nghe_Phan_Mem\QLSanBong\QLSanBong\bin\Debug\QLSanBong.exe.config
+D:\Cong_Nghe_Phan_Mem\QLSanBong\QLSanBong\bin\Debug\QLSanBong.exe
+D:\Cong_Nghe_Phan_Mem\QLSanBong\QLSanBong\bin\Debug\QLSanBong.pdb
+D:\Cong_Nghe_Phan_Mem\QLSanBong\QLSanBong\obj\Debug\QLSanBong.csproj.AssemblyReference.cache
+D:\Cong_Nghe_Phan_Mem\QLSanBong\QLSanBong\obj\Debug\QLSanBong.fLogin.resources
+D:\Cong_Nghe_Phan_Mem\QLSanBong\QLSanBong\obj\Debug\QLSanBong.Properties.Resources.resources
+D:\Cong_Nghe_Phan_Mem\QLSanBong\QLSanBong\obj\Debug\QLSanBong.csproj.GenerateResource.cache
+D:\Cong_Nghe_Phan_Mem\QLSanBong\QLSanBong\obj\Debug\QLSanBong.csproj.CoreCompileInputs.cache
+D:\Cong_Nghe_Phan_Mem\QLSanBong\QLSanBong\obj\Debug\QLSanBong.exe
+D:\Cong_Nghe_Phan_Mem\QLSanBong\QLSanBong\obj\Debug\QLSanBong.pdb

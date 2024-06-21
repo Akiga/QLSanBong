@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Cong_Nghe_Phan_Mem\\QLSanBong\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F0750A05-ABAF-440D-AB66-48070B736A32}|QuanLyCaFe\\QuanLyCaFe.csproj|d:\\cong_nghe_phan_mem\\qlsanbong\\quanlycafe\\ftablemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0750A05-ABAF-440D-AB66-48070B736A32}|QuanLyCaFe\\QuanLyCaFe.csproj|solutionrelative:quanlycafe\\ftablemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0750A05-ABAF-440D-AB66-48070B736A32}|QuanLyCaFe\\QuanLyCaFe.csproj|d:\\cong_nghe_phan_mem\\qlsanbong\\quanlycafe\\ftablemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F0750A05-ABAF-440D-AB66-48070B736A32}|QuanLyCaFe\\QuanLyCaFe.csproj|solutionrelative:quanlycafe\\ftablemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ftableManager.cs",
+              "DocumentMoniker": "D:\\Cong_Nghe_Phan_Mem\\QLSanBong\\QuanLyCaFe\\ftableManager.cs",
+              "RelativeDocumentMoniker": "QuanLyCaFe\\ftableManager.cs",
+              "ToolTip": "D:\\Cong_Nghe_Phan_Mem\\QLSanBong\\QuanLyCaFe\\ftableManager.cs",
+              "RelativeToolTip": "QuanLyCaFe\\ftableManager.cs",
+              "ViewState": "AQIAAHQAAAAAAAAAAAAIwOYAAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-20T14:19:30.847Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ftableManager.cs [Design]",
+              "DocumentMoniker": "D:\\Cong_Nghe_Phan_Mem\\QLSanBong\\QuanLyCaFe\\ftableManager.cs",
+              "RelativeDocumentMoniker": "QuanLyCaFe\\ftableManager.cs",
+              "ToolTip": "D:\\Cong_Nghe_Phan_Mem\\QLSanBong\\QuanLyCaFe\\ftableManager.cs [Design]",
+              "RelativeToolTip": "QuanLyCaFe\\ftableManager.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-20T14:18:19.608Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
