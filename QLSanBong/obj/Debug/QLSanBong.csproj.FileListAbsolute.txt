@@ -8,3 +8,6 @@ D:\Cong_Nghe_Phan_Mem\QLSanBong\QLSanBong\obj\Debug\QLSanBong.csproj.GenerateRes
 D:\Cong_Nghe_Phan_Mem\QLSanBong\QLSanBong\obj\Debug\QLSanBong.csproj.CoreCompileInputs.cache
 D:\Cong_Nghe_Phan_Mem\QLSanBong\QLSanBong\obj\Debug\QLSanBong.exe
 D:\Cong_Nghe_Phan_Mem\QLSanBong\QLSanBong\obj\Debug\QLSanBong.pdb
+D:\Cong_Nghe_Phan_Mem\QLSanBong\QLSanBong\obj\Debug\QLSanBong.fAccountProfile.resources
+D:\Cong_Nghe_Phan_Mem\QLSanBong\QLSanBong\obj\Debug\QLSanBong.fAdmin.resources
+D:\Cong_Nghe_Phan_Mem\QLSanBong\QLSanBong\obj\Debug\QLSanBong.fHome.resources
