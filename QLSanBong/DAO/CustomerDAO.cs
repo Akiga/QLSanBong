@@ -24,7 +24,6 @@ namespace QLSanBong.DAO
         {
             List<Customer> list = new List<Customer>();
 
-            string query = "SELECT c.id AS CustomerID , c.CustomerName , c.CustomerPhone , c.price , c.DateCheckIn , c.DateCheckOut , s.Ten AS StadiumName FROM Customer c INNER JOIN Stadium s ON c.idStadium = s.id; ";
 
             DataTable data = dataProvider.Instance.ExecuteQuery("select * from Customer");
 

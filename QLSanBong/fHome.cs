@@ -14,14 +14,21 @@ namespace QLSanBong
 {
     public partial class fHome : Form
     {
-    
+        BindingSource List = new BindingSource();
 
         public fHome()
         {
-
             InitializeComponent();
+            Load();
+        }
+
+        void Load()
+        {
+            dtgvBill.DataSource = List;
+
             LoadStadiumIntoComboBox(cbStadium);
             LoadList();
+            addBinding();
         }
 
         private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
@@ -44,10 +51,18 @@ namespace QLSanBong
         }
         void LoadList()
         {
-            dtgvBill.DataSource = CustomerDAO.Instance.GetList();
+            List.DataSource = CustomerDAO.Instance.GetList();
         }
 
-
+        void addBinding()
+        {
+            txtID.DataBindings.Add(new Binding("Text", dtgvBill.DataSource, "ID"));
+            txtName.DataBindings.Add(new Binding("Text", dtgvBill.DataSource, "Name"));
+            txtPhone.DataBindings.Add(new Binding("Text", dtgvBill.DataSource, "Phone"));
+            txtTimeS.DataBindings.Add(new Binding("Text",dtgvBill.DataSource, "DateCheckIn"));
+            txtTimeE.DataBindings.Add(new Binding("Text", dtgvBill.DataSource, "DateCheckOut"));
+            nmPrice.DataBindings.Add(new Binding("Value", dtgvBill.DataSource, "Price"));
+        }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -76,5 +91,31 @@ namespace QLSanBong
             }
         }
 
+        private void txtID_TextChanged(object sender, EventArgs e)
+        {
+            if (dtgvBill.SelectedCells.Count > 0)
+            {
+                int id = (int)dtgvBill.SelectedCells[0].OwningRow.Cells["idStadium"].Value;
+
+                Stadium category = StadiumDAO.Instance.getStadiumById(id);
+
+                cbStadium.SelectedItem = category;
+
+                int index = -1;
+                int i = 0;
+
+                foreach (Stadium item in cbStadium.Items)
+                {
+                    if (item.ID == category.ID)
+                    {
+                        index = i;
+                        break;
+                    }
+                    i++;
+
+                }
+                cbStadium.SelectedIndex = index;
+            }
+        }
     }
 }

@@ -31,7 +31,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinCáNhânToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dtgvBill = new System.Windows.Forms.DataGridView();
@@ -39,13 +38,14 @@
             this.txtSearchName = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.nmPrice = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtTotalPrice = new System.Windows.Forms.TextBox();
-            this.nmDiscount = new System.Windows.Forms.NumericUpDown();
-            this.btnDiscount = new System.Windows.Forms.Button();
             this.btnCheckOut = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtTimeE = new System.Windows.Forms.TextBox();
@@ -66,10 +66,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmPrice)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmDiscount)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -102,18 +102,9 @@
             this.thôngTinCáNhânToolStripMenuItem.Text = "Thông tin cá nhân";
             this.thôngTinCáNhânToolStripMenuItem.Click += new System.EventHandler(this.thôngTinCáNhânToolStripMenuItem_Click);
             // 
-            // btnEdit
-            // 
-            this.btnEdit.Location = new System.Drawing.Point(361, 134);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 42);
-            this.btnEdit.TabIndex = 2;
-            this.btnEdit.Text = "Sửa";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(442, 134);
+            this.btnDelete.Location = new System.Drawing.Point(3, 51);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 42);
             this.btnDelete.TabIndex = 1;
@@ -122,7 +113,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(280, 134);
+            this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 42);
             this.btnAdd.TabIndex = 0;
@@ -167,20 +158,46 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.panel10);
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.panel4);
             this.panel6.Controls.Add(this.panel3);
             this.panel6.Controls.Add(this.panel2);
             this.panel6.Controls.Add(this.panel8);
-            this.panel6.Controls.Add(this.btnEdit);
             this.panel6.Controls.Add(this.panel1);
-            this.panel6.Controls.Add(this.btnDelete);
             this.panel6.Controls.Add(this.panel9);
-            this.panel6.Controls.Add(this.btnAdd);
             this.panel6.Location = new System.Drawing.Point(0, 305);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(781, 180);
             this.panel6.TabIndex = 4;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.txtID);
+            this.panel10.Controls.Add(this.label7);
+            this.panel10.Location = new System.Drawing.Point(263, 134);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(254, 46);
+            this.panel10.TabIndex = 8;
+            // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(119, 14);
+            this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
+            this.txtID.Size = new System.Drawing.Size(127, 22);
+            this.txtID.TabIndex = 2;
+            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(9, 14);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(31, 19);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "ID:";
             // 
             // panel7
             // 
@@ -222,9 +239,9 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.txtTotalPrice);
-            this.panel4.Controls.Add(this.nmDiscount);
-            this.panel4.Controls.Add(this.btnDiscount);
             this.panel4.Controls.Add(this.btnCheckOut);
+            this.panel4.Controls.Add(this.btnAdd);
+            this.panel4.Controls.Add(this.btnDelete);
             this.panel4.Location = new System.Drawing.Point(523, 69);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(255, 107);
@@ -234,7 +251,7 @@
             // 
             this.txtTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalPrice.ForeColor = System.Drawing.Color.Red;
-            this.txtTotalPrice.Location = new System.Drawing.Point(156, 12);
+            this.txtTotalPrice.Location = new System.Drawing.Point(161, 21);
             this.txtTotalPrice.Name = "txtTotalPrice";
             this.txtTotalPrice.ReadOnly = true;
             this.txtTotalPrice.Size = new System.Drawing.Size(91, 22);
@@ -242,31 +259,9 @@
             this.txtTotalPrice.Text = "0";
             this.txtTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // nmDiscount
-            // 
-            this.nmDiscount.Location = new System.Drawing.Point(13, 13);
-            this.nmDiscount.Name = "nmDiscount";
-            this.nmDiscount.Size = new System.Drawing.Size(91, 22);
-            this.nmDiscount.TabIndex = 6;
-            this.nmDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nmDiscount.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // btnDiscount
-            // 
-            this.btnDiscount.Location = new System.Drawing.Point(13, 40);
-            this.btnDiscount.Name = "btnDiscount";
-            this.btnDiscount.Size = new System.Drawing.Size(91, 55);
-            this.btnDiscount.TabIndex = 5;
-            this.btnDiscount.Text = "Giảm giá";
-            this.btnDiscount.UseVisualStyleBackColor = true;
-            // 
             // btnCheckOut
             // 
-            this.btnCheckOut.Location = new System.Drawing.Point(156, 40);
+            this.btnCheckOut.Location = new System.Drawing.Point(161, 49);
             this.btnCheckOut.Name = "btnCheckOut";
             this.btnCheckOut.Size = new System.Drawing.Size(91, 55);
             this.btnCheckOut.TabIndex = 4;
@@ -426,12 +421,13 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmPrice)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmDiscount)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -452,7 +448,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thôngTinCáNhânToolStripMenuItem;
-        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dtgvBill;
@@ -477,11 +472,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txtTotalPrice;
-        private System.Windows.Forms.NumericUpDown nmDiscount;
-        private System.Windows.Forms.Button btnDiscount;
         private System.Windows.Forms.Button btnCheckOut;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.NumericUpDown nmPrice;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.Label label7;
     }
 }

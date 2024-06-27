@@ -9,14 +9,14 @@ namespace QLSanBong.DTO
 {
     public class Customer
     {
-        public Customer(int id, string name, int phone, float price, string dateCheckOut, string dateCheckIn, int idStadium)
+        public Customer(int id, string name, int phone, float price, string dateCheckIn, string dateCheckOut, int idStadium)
         {
             this.ID = id;
             this.Name = name;
             this.Phone = phone;
             this.Price = price;
-            this.DateCheckOut = dateCheckOut;
             this.DateCheckIn = dateCheckIn;
+            this.DateCheckOut = dateCheckOut;
             this.IdStadium = idStadium;
         }
 

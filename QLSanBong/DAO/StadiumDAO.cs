@@ -35,5 +35,22 @@ namespace QLSanBong.DAO
 
             return list;
         }
+
+        public Stadium getStadiumById(int id)
+        {
+            Stadium stadium = null;
+
+            string query = "select * from Stadium where id =" + id;
+
+            DataTable data = dataProvider.Instance.ExecuteQuery(query);
+
+            foreach (DataRow item in data.Rows)
+            {
+                stadium = new Stadium(item);
+                return stadium;
+            }
+
+            return stadium;
+        }
     }
 }

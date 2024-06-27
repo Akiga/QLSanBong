@@ -129,12 +129,9 @@ go
 
 select * from Stadium
 
---------------------
+
+---------------------------------
 -- thêm khách hàng
-
-insert Customer(CustomerName, CustomerPhone, price, DateCheckIn, DateCheckOut)
-values(N'',0,0,N'',N'')
-
 drop proc AddCustomer
 CREATE PROCEDURE AddCustomer
     @CustomerName NVARCHAR(100),
@@ -170,3 +167,38 @@ BEGIN
     -- Trả về ID của khách hàng vừa được thêm vào và tên sân vận động
     SELECT SCOPE_IDENTITY() AS CustomerID, @InsertedStadiumName AS StadiumName;
 END;
+
+
+--------------------------------------
+--Sửa
+delete Customer
+select * from Customer
+select * from Stadium
+Update Customer set CustomerName = N'', CustomerPhone = 132, price = 100, DateCheckIn = N'', DateCheckOut = N'', idStadium = 2 where id = 4
+
+drop proc UpdateCustomer
+CREATE PROCEDURE UpdateCustomer
+    @CustomerID INT,
+    @CustomerName NVARCHAR(100),
+    @CustomerPhone INT,
+    @Price FLOAT,
+    @DateCheckIn NVARCHAR(100),
+    @DateCheckOut NVARCHAR(100),
+    @Stadium	Nvarchar(100)
+AS
+BEGIN
+    UPDATE Customer
+    SET 
+        CustomerName = @CustomerName,
+        CustomerPhone = @CustomerPhone,
+        price = @Price,
+        DateCheckIn = @DateCheckIn,
+        DateCheckOut = @DateCheckOut,
+        idStadium = @Stadium
+    WHERE 
+        id = @CustomerID;
+END;
+go
+
+
+select * from Customer c, Stadium s where s.id = c.idStadium
