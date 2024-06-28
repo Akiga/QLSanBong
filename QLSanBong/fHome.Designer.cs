@@ -110,6 +110,7 @@
             this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -266,6 +267,7 @@
             this.btnCheckOut.TabIndex = 4;
             this.btnCheckOut.Text = "Thanh toán";
             this.btnCheckOut.UseVisualStyleBackColor = true;
+            this.btnCheckOut.Click += new System.EventHandler(this.btnCheckOut_Click);
             // 
             // panel3
             // 
@@ -282,6 +284,7 @@
             this.txtTimeE.Name = "txtTimeE";
             this.txtTimeE.Size = new System.Drawing.Size(127, 22);
             this.txtTimeE.TabIndex = 1;
+            this.txtTimeE.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label5
             // 
@@ -308,6 +311,7 @@
             this.txtTimeS.Name = "txtTimeS";
             this.txtTimeS.Size = new System.Drawing.Size(127, 22);
             this.txtTimeS.TabIndex = 1;
+            this.txtTimeS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 
@@ -334,6 +338,7 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(127, 22);
             this.txtPhone.TabIndex = 1;
+            this.txtPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label1
             // 
@@ -360,6 +365,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(127, 22);
             this.txtName.TabIndex = 1;
+            this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
             // 

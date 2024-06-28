@@ -45,9 +45,27 @@ namespace QLSanBong.DAO
             return result > 0;
         }
 
-        public bool updateCus(int id,string name, int phone, float price, string checkIn, string checkOut)
+        public bool updateCus(int id,string name, int phone, float price, string checkIn, string checkOut, int idStadium)
         {
-            int result = dataProvider.Instance.ExecuteNonQuery("exec UpdateCustomer @CustomerID , @CustomerName , @CustomerPhone , @Price , @DateCheckIn , @DateCheckOut", new object[] {id, name, phone, price, checkIn, checkOut});
+            string query = string.Format("Update Customer set CustomerName = N'{0}', CustomerPhone = {1}, price = {2}, DateCheckIn = N'{3}', DateCheckOut = N'{4}', idStadium = {5} where id = {6}", name, phone, price, checkIn, checkOut, idStadium, id);
+
+
+            int result = dataProvider.Instance.ExecuteNonQuery(query);
+            //int result = dataProvider.Instance.ExecuteNonQuery("exec UpdateCustomer @CustomerID , @CustomerName , @CustomerPhone , @Price , @DateCheckIn , @DateCheckOut", new object[] {id, name, phone, price, checkIn, checkOut});
+            return result > 0;
+        }
+
+        public bool deleteCus(int id)
+        {
+            string query = string.Format("delete Customer where id = " + id);
+
+            int result = dataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool checkOut(int id)
+        {
+            int result = dataProvider.Instance.ExecuteNonQuery("MoveCusToBill @id = " + id);
             return result > 0;
         }
     }

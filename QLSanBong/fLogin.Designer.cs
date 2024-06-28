@@ -62,7 +62,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(277, 22);
             this.txtPassword.TabIndex = 2;
-            this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.Text = "1";
             // 
             // txtUserName
             // 
@@ -70,6 +70,7 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(277, 22);
             this.txtUserName.TabIndex = 1;
+            this.txtUserName.Text = "Akiga";
             // 
             // lblPassword
             // 
@@ -91,6 +92,7 @@
             // 
             // button2
             // 
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.Location = new System.Drawing.Point(328, 224);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(111, 38);

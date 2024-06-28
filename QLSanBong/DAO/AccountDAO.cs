@@ -28,5 +28,23 @@ namespace QLSanBong.DAO
 
             return result.Rows.Count > 0;
         }
+
+        public Account GetAccountByUserName(string userName)
+        {
+            DataTable data = dataProvider.Instance.ExecuteQuery("select * from Account where userName= '" + userName + "'");
+
+            foreach (DataRow item in data.Rows)
+            {
+                return new Account(item);
+            }
+            return null;
+        }
+
+        public bool UpdateAccount(string userName, string displayName, string pass, string newPass)
+        {
+            int result = dataProvider.Instance.ExecuteNonQuery("exec USP_UpdateAccount @userName , @displayName , @password , @newPassword ", new object[] { userName, displayName, pass, newPass });
+
+            return result > 0;
+        }
     }
 }

@@ -6,9 +6,11 @@ go
 
 -- Account
 -- Bill
--- BillInfo
--- Table
+-- Stadium
 -- Customer
+select * from Bill
+select * from Customer
+select * from Stadium
 
 drop table Account
 create table Account
@@ -44,27 +46,25 @@ create table Stadium
 )
 go
 
+
+select * from Customer
+select * from Bill
+
+
 drop table Bill
 create table Bill
 (	
 	id int identity primary key,
-	idStadium int not null,
-
-	foreign key (idStadium) References dbo.Stadium(id)
+    CustomerName nvarchar(100),
+    CustomerPhone int,
+    price float not null Default 0,
+    CheckIn nvarchar(100) not null,
+    CheckOut nvarchar(100) not null,
+    idStadium int not null,
+    foreign key (idStadium) References dbo.Stadium(id)
 )
 go
 
-drop table BillInfo
-create table BillInfo
-(
-	id int identity primary key,
-	idBill int not null,
-	idCustomer int not null,
-	gio int not null Default 0
-	foreign key (idBill) References dbo.Bill(id),
-	foreign key (idCustomer) References dbo.Customer(id)
-)
-go
 
 
 
@@ -116,6 +116,38 @@ begin
  end
  go
 
+------ Update acc
+create proc USP_UpdateAccount
+@userName nvarchar(100), @displayName nvarchar(100), @password nvarchar(100), @newPassword nvarchar(100)
+as
+begin 
+	declare @isRightPass int = 0
+
+	select @isRightPass = count(*) from Account where UserName = @userName and Password = @password
+
+	if(@isRightPass = 1)
+	begin
+		if(@newPassword = null or @newPassword = '')
+			begin 
+				update Account set DisplayName = @displayName where UserName = @userName
+			end
+		else
+			begin
+				update Account set DisplayName = @displayName, Password = @newPassword where UserName = @userName
+			end
+	end
+end 
+go
+
+
+
+
+
+
+
+
+
+
  ---------------------------------------------
  --Thêm sân
  declare @i int = 1
@@ -128,6 +160,7 @@ end
 go
 
 select * from Stadium
+delete Stadium
 
 
 ---------------------------------
@@ -206,3 +239,30 @@ end
 go
 
 exec cusAndSta
+
+
+
+--------------------------------
+-- Xóa 
+
+select * from Customer
+
+
+delete Customer where id = 12
+
+------------------------------------
+--Thanh Toán
+create proc MoveCusToBill
+@id int
+as
+begin
+	INSERT INTO Bill (CustomerName, CustomerPhone, price, CheckIn, CheckOut, idStadium)
+    SELECT CustomerName, CustomerPhone, price, DateCheckIn, DateCheckOut, idStadium
+    FROM Customer where id = @id
+
+    DELETE FROM Customer where id = @id
+end
+go
+select * from Customer
+select * from Bill
+exec MoveCusToBill @id = 4

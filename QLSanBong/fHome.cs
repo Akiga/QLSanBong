@@ -14,11 +14,24 @@ namespace QLSanBong
 {
     public partial class fHome : Form
     {
+        private Account loginAccount;
+
         BindingSource List = new BindingSource();
 
-        public fHome()
+        public Account LoginAccount 
+        {
+            get { return loginAccount; }
+            set
+            {
+                loginAccount = value;
+                ChangeAccount(loginAccount.Type);
+            }
+        }
+
+        public fHome(Account acc)
         {
             InitializeComponent();
+            this.LoginAccount = acc;
             Load();
         }
 
@@ -31,9 +44,15 @@ namespace QLSanBong
             addBinding();
         }
 
+        void ChangeAccount(int type)
+        {
+            adminToolStripMenuItem.Enabled = type == 1;
+            thôngTinCáNhânToolStripMenuItem.Text += " (" + LoginAccount.DisplayName + ")";
+        }
         private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fAccountProfile f = new fAccountProfile();
+            fAccountProfile f = new fAccountProfile(LoginAccount);
+
             f.ShowDialog();
         }
 
@@ -126,6 +145,7 @@ namespace QLSanBong
             string checkIn = txtTimeS.Text;
             string checkOut = txtTimeE.Text;
             int id = Convert.ToInt32(txtID.Text);
+            int idStadium = (cbStadium.SelectedItem as Stadium).ID;
             // Kiểm tra và chuyển đổi số điện thoại
             if (!int.TryParse(txtPhone.Text, out phone))
             {
@@ -134,7 +154,7 @@ namespace QLSanBong
             }
 
             // Gọi phương thức insertCus từ CustomerDAO
-            if (CustomerDAO.Instance.updateCus(id, name, phone, price, checkIn, checkOut))
+            if (CustomerDAO.Instance.updateCus(id, name, phone, price, checkIn, checkOut, idStadium))
             {
                 MessageBox.Show("Cập nhật thành công");
                 LoadList(); // Cập nhật danh sách khách hàng sau khi thêm thành công
@@ -142,6 +162,38 @@ namespace QLSanBong
             else
             {
                 MessageBox.Show("Có lỗi khi cập nhật khách hàng.");
+            }
+        }
+
+        private void btnCheckOut_Click(object sender, EventArgs e)
+        {
+            //int id = Convert.ToInt32(txtID.Text);
+
+            //// Gọi phương thức insertCus từ CustomerDAO
+            //if (CustomerDAO.Instance.checkOut(id))
+            //{
+            //    MessageBox.Show("Thanh toán thành công");
+            //    LoadList(); // Cập nhật danh sách khách hàng sau khi thêm thành công
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Có lỗi khi thanh toán khách hàng.");
+            //}
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txtID.Text);
+
+            // Gọi phương thức insertCus từ CustomerDAO
+            if (CustomerDAO.Instance.deleteCus(id))
+            {
+                MessageBox.Show("Xóa thành công");
+                LoadList(); // Cập nhật danh sách khách hàng sau khi thêm thành công
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi xóa khách hàng.");
             }
         }
     }

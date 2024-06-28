@@ -1,87 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Cong_Nghe_Phan_Mem\\QLSanBong\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{0EF32F65-DD45-44DE-A08D-F8E7F1D82AA4}|QLSanBong\\QLSanBong.csproj|D:\\Cong_Nghe_Phan_Mem\\QLSanBong\\qlsanbong\\fhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{0EF32F65-DD45-44DE-A08D-F8E7F1D82AA4}|QLSanBong\\QLSanBong.csproj|solutionrelative:qlsanbong\\fhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EF32F65-DD45-44DE-A08D-F8E7F1D82AA4}|QLSanBong\\QLSanBong.csproj|d:\\cong_nghe_phan_mem\\qlsanbong\\qlsanbong\\fhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EF32F65-DD45-44DE-A08D-F8E7F1D82AA4}|QLSanBong\\QLSanBong.csproj|solutionrelative:qlsanbong\\fhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EF32F65-DD45-44DE-A08D-F8E7F1D82AA4}|QLSanBong\\QLSanBong.csproj|D:\\Cong_Nghe_Phan_Mem\\QLSanBong\\qlsanbong\\dao\\customerdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EF32F65-DD45-44DE-A08D-F8E7F1D82AA4}|QLSanBong\\QLSanBong.csproj|solutionrelative:qlsanbong\\dao\\customerdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EF32F65-DD45-44DE-A08D-F8E7F1D82AA4}|QLSanBong\\QLSanBong.csproj|d:\\cong_nghe_phan_mem\\qlsanbong\\qlsanbong\\dto\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EF32F65-DD45-44DE-A08D-F8E7F1D82AA4}|QLSanBong\\QLSanBong.csproj|solutionrelative:qlsanbong\\dto\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "fHome.cs",
-              "DocumentMoniker": "D:\\Cong_Nghe_Phan_Mem\\QLSanBong\\QLSanBong\\fHome.cs",
-              "RelativeDocumentMoniker": "QLSanBong\\fHome.cs",
-              "ToolTip": "D:\\Cong_Nghe_Phan_Mem\\QLSanBong\\QLSanBong\\fHome.cs",
-              "RelativeToolTip": "QLSanBong\\fHome.cs",
-              "ViewState": "AQIAAEIAAAAAAAAAAADwv5EAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-27T02:39:55.044Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "fHome.cs [Design]",
-              "DocumentMoniker": "D:\\Cong_Nghe_Phan_Mem\\QLSanBong\\QLSanBong\\fHome.cs",
-              "RelativeDocumentMoniker": "QLSanBong\\fHome.cs",
-              "ToolTip": "D:\\Cong_Nghe_Phan_Mem\\QLSanBong\\QLSanBong\\fHome.cs [Design]",
-              "RelativeToolTip": "QLSanBong\\fHome.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-26T06:01:42.904Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Customer.cs",
-              "DocumentMoniker": "D:\\Cong_Nghe_Phan_Mem\\QLSanBong\\QLSanBong\\DTO\\Customer.cs",
-              "RelativeDocumentMoniker": "QLSanBong\\DTO\\Customer.cs",
-              "ToolTip": "D:\\Cong_Nghe_Phan_Mem\\QLSanBong\\QLSanBong\\DTO\\Customer.cs",
-              "RelativeToolTip": "QLSanBong\\DTO\\Customer.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAgwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-28T02:11:38.768Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CustomerDAO.cs",
-              "DocumentMoniker": "D:\\Cong_Nghe_Phan_Mem\\QLSanBong\\QLSanBong\\DAO\\CustomerDAO.cs",
-              "RelativeDocumentMoniker": "QLSanBong\\DAO\\CustomerDAO.cs",
-              "ToolTip": "D:\\Cong_Nghe_Phan_Mem\\QLSanBong\\QLSanBong\\DAO\\CustomerDAO.cs",
-              "RelativeToolTip": "QLSanBong\\DAO\\CustomerDAO.cs",
-              "ViewState": "AQIAACQAAAAAAAAAAAAAwDEAAAC8AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-27T02:56:57.892Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

@@ -30,10 +30,11 @@ namespace QLSanBong
             string password = txtPassword.Text;
             if (Login(userName, password))
             {
-            fHome f = new fHome();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
+                Account loginAccount = AccountDAO.Instance.GetAccountByUserName(userName);
+                fHome f = new fHome(loginAccount);
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
             }
             else
             {
