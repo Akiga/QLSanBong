@@ -117,5 +117,32 @@ namespace QLSanBong
                 cbStadium.SelectedIndex = index;
             }
         }
+
+        private void txtEdit_Click(object sender, EventArgs e)
+        {
+            string name = txtName.Text;
+            float price = (float)nmPrice.Value;
+            int phone;
+            string checkIn = txtTimeS.Text;
+            string checkOut = txtTimeE.Text;
+            int id = Convert.ToInt32(txtID.Text);
+            // Kiểm tra và chuyển đổi số điện thoại
+            if (!int.TryParse(txtPhone.Text, out phone))
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ. Vui lòng nhập một số nguyên.");
+                return;
+            }
+
+            // Gọi phương thức insertCus từ CustomerDAO
+            if (CustomerDAO.Instance.updateCus(id, name, phone, price, checkIn, checkOut))
+            {
+                MessageBox.Show("Cập nhật thành công");
+                LoadList(); // Cập nhật danh sách khách hàng sau khi thêm thành công
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi cập nhật khách hàng.");
+            }
+        }
     }
 }

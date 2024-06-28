@@ -183,8 +183,7 @@ CREATE PROCEDURE UpdateCustomer
     @CustomerPhone INT,
     @Price FLOAT,
     @DateCheckIn NVARCHAR(100),
-    @DateCheckOut NVARCHAR(100),
-    @Stadium	Nvarchar(100)
+    @DateCheckOut NVARCHAR(100)
 AS
 BEGIN
     UPDATE Customer
@@ -193,12 +192,17 @@ BEGIN
         CustomerPhone = @CustomerPhone,
         price = @Price,
         DateCheckIn = @DateCheckIn,
-        DateCheckOut = @DateCheckOut,
-        idStadium = @Stadium
+        DateCheckOut = @DateCheckOut
     WHERE 
         id = @CustomerID;
 END;
 go
 
+create proc cusAndSta
+as
+begin
+	select * from Customer c, Stadium s where s.id = c.idStadium
+end
+go
 
-select * from Customer c, Stadium s where s.id = c.idStadium
+exec cusAndSta

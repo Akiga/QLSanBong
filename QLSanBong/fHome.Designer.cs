@@ -45,7 +45,7 @@
             this.nmPrice = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.txtTotalPrice = new System.Windows.Forms.TextBox();
+            this.txtEdit = new System.Windows.Forms.Button();
             this.btnCheckOut = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtTimeE = new System.Windows.Forms.TextBox();
@@ -104,18 +104,18 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(3, 51);
+            this.btnDelete.Location = new System.Drawing.Point(26, 59);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 42);
+            this.btnDelete.Size = new System.Drawing.Size(85, 42);
             this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(3, 3);
+            this.btnAdd.Location = new System.Drawing.Point(26, 6);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 42);
+            this.btnAdd.Size = new System.Drawing.Size(85, 42);
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -123,6 +123,7 @@
             // 
             // dtgvBill
             // 
+            this.dtgvBill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvBill.Location = new System.Drawing.Point(0, 27);
             this.dtgvBill.Name = "dtgvBill";
@@ -238,7 +239,7 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.txtTotalPrice);
+            this.panel4.Controls.Add(this.txtEdit);
             this.panel4.Controls.Add(this.btnCheckOut);
             this.panel4.Controls.Add(this.btnAdd);
             this.panel4.Controls.Add(this.btnDelete);
@@ -247,23 +248,21 @@
             this.panel4.Size = new System.Drawing.Size(255, 107);
             this.panel4.TabIndex = 6;
             // 
-            // txtTotalPrice
+            // txtEdit
             // 
-            this.txtTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalPrice.ForeColor = System.Drawing.Color.Red;
-            this.txtTotalPrice.Location = new System.Drawing.Point(161, 21);
-            this.txtTotalPrice.Name = "txtTotalPrice";
-            this.txtTotalPrice.ReadOnly = true;
-            this.txtTotalPrice.Size = new System.Drawing.Size(91, 22);
-            this.txtTotalPrice.TabIndex = 6;
-            this.txtTotalPrice.Text = "0";
-            this.txtTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtEdit.Location = new System.Drawing.Point(143, 7);
+            this.txtEdit.Name = "txtEdit";
+            this.txtEdit.Size = new System.Drawing.Size(85, 42);
+            this.txtEdit.TabIndex = 7;
+            this.txtEdit.Text = "Sửa";
+            this.txtEdit.UseVisualStyleBackColor = true;
+            this.txtEdit.Click += new System.EventHandler(this.txtEdit_Click);
             // 
             // btnCheckOut
             // 
-            this.btnCheckOut.Location = new System.Drawing.Point(161, 49);
+            this.btnCheckOut.Location = new System.Drawing.Point(143, 59);
             this.btnCheckOut.Name = "btnCheckOut";
-            this.btnCheckOut.Size = new System.Drawing.Size(91, 55);
+            this.btnCheckOut.Size = new System.Drawing.Size(85, 42);
             this.btnCheckOut.TabIndex = 4;
             this.btnCheckOut.Text = "Thanh toán";
             this.btnCheckOut.UseVisualStyleBackColor = true;
@@ -427,7 +426,6 @@
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmPrice)).EndInit();
             this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -471,7 +469,6 @@
         private System.Windows.Forms.TextBox txtTimeE;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox txtTotalPrice;
         private System.Windows.Forms.Button btnCheckOut;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.NumericUpDown nmPrice;
@@ -479,5 +476,6 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button txtEdit;
     }
 }
