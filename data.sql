@@ -32,6 +32,8 @@ create table Customer
 	DateCheckIn nvarchar(100) not null,
 	DateCheckOut nvarchar(100) not null,
 	idStadium int not null,
+	CheckIn Date not null default getdate(),
+	CheckOut Date,
 	foreign key (idStadium) References dbo.Stadium(id)
 )
 go
@@ -61,11 +63,14 @@ create table Bill
     CheckIn nvarchar(100) not null,
     CheckOut nvarchar(100) not null,
     idStadium int not null,
+	DateCheckIn Date not null default getdate(),
+	DateCheckOut Date default getdate(),
     foreign key (idStadium) References dbo.Stadium(id)
 )
 go
 
-
+delete Bill
+select * from Bill
 
 
 insert into dbo.Account(
@@ -138,14 +143,6 @@ begin
 	end
 end 
 go
-
-
-
-
-
-
-
-
 
 
  ---------------------------------------------
@@ -252,7 +249,7 @@ delete Customer where id = 12
 
 ------------------------------------
 --Thanh Toán
-create proc MoveCusToBill
+alter proc MoveCusToBill
 @id int
 as
 begin
@@ -260,9 +257,24 @@ begin
     SELECT CustomerName, CustomerPhone, price, DateCheckIn, DateCheckOut, idStadium
     FROM Customer where id = @id
 
+	update Bill set DateCheckOut = getdate() where id = @id
+
     DELETE FROM Customer where id = @id
 end
 go
 select * from Customer
 select * from Bill
 exec MoveCusToBill @id = 4
+
+----------------------------
+-- danh sách hóa đơn
+
+
+create proc USP_GetListBillByDate
+@checkIn date, @checkOut date
+as
+begin
+	select idStadium as N'Số sân', CustomerName as N'Tên', CustomerPhone as N'Số điện thoại', CheckIn as 'Giờ vào', CheckOut as 'Giờ ra', price as 'Giá' 
+	from Bill where DateCheckIn >= @checkIn and DateCheckOut <= @checkOut
+end 
+go

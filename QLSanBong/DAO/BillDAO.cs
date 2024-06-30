@@ -19,5 +19,10 @@ namespace QLSanBong.DAO
         }
 
         private BillDAO() { }
+
+        public DataTable GetBill(DateTime checkIn, DateTime checkOut)
+        {
+            return dataProvider.Instance.ExecuteQuery("exec USP_GetListBillByDate @checkIn , @checkOut", new object[] { checkIn, checkOut });
+        }
     }
 }

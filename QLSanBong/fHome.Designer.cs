@@ -62,6 +62,7 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.cbStadium = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnXem = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).BeginInit();
             this.panel5.SuspendLayout();
@@ -133,6 +134,7 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.btnXem);
             this.panel5.Controls.Add(this.txtSearchName);
             this.panel5.Controls.Add(this.btnSearch);
             this.panel5.Location = new System.Drawing.Point(0, 254);
@@ -143,10 +145,10 @@
             // txtSearchName
             // 
             this.txtSearchName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchName.Location = new System.Drawing.Point(0, 3);
+            this.txtSearchName.Location = new System.Drawing.Point(91, 3);
             this.txtSearchName.Multiline = true;
             this.txtSearchName.Name = "txtSearchName";
-            this.txtSearchName.Size = new System.Drawing.Size(700, 42);
+            this.txtSearchName.Size = new System.Drawing.Size(609, 42);
             this.txtSearchName.TabIndex = 5;
             // 
             // btnSearch
@@ -157,6 +159,7 @@
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Tìm";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // panel6
             // 
@@ -404,6 +407,16 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Sân:";
             // 
+            // btnXem
+            // 
+            this.btnXem.Location = new System.Drawing.Point(3, 3);
+            this.btnXem.Name = "btnXem";
+            this.btnXem.Size = new System.Drawing.Size(85, 42);
+            this.btnXem.TabIndex = 6;
+            this.btnXem.Text = "Refresh";
+            this.btnXem.UseVisualStyleBackColor = true;
+            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
+            // 
             // fHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -483,5 +496,6 @@
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button txtEdit;
+        private System.Windows.Forms.Button btnXem;
     }
 }

@@ -36,9 +36,6 @@ namespace QLSanBong.DAO
             return list;
         }
 
-
-
-
         public bool insertCus(string name, int phone, float price, string checkIn, string checkOut, string stadium)
         {
             int result = dataProvider.Instance.ExecuteNonQuery("exec AddCustomer @CustomerName , @CustomerPhone , @Price , @DateCheckIn , @DateCheckOut , @StadiumName", new object[] {name, phone, price, checkIn, checkOut, stadium});
@@ -65,8 +62,25 @@ namespace QLSanBong.DAO
 
         public bool checkOut(int id)
         {
-            int result = dataProvider.Instance.ExecuteNonQuery("MoveCusToBill @id = " + id);
+            int result = dataProvider.Instance.ExecuteNonQuery("exec MoveCusToBill @id = " + id);
             return result > 0;
+        }
+
+        public List<Customer> SearchPhone(int phone)
+        {
+            List<Customer> list = new List<Customer>();
+
+            string query = string.Format("select * from customer where Customerphone = {0}", phone);
+
+            DataTable data = dataProvider.Instance.ExecuteQuery(query);
+
+            foreach (DataRow item in data.Rows)
+            {
+                Customer cus = new Customer(item);
+                list.Add(cus);
+            }
+
+            return list;
         }
     }
 }

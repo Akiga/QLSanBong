@@ -1,12 +1,53 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Cong_Nghe_Phan_Mem\\QLSanBong\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0EF32F65-DD45-44DE-A08D-F8E7F1D82AA4}|QLSanBong\\QLSanBong.csproj|d:\\cong_nghe_phan_mem\\qlsanbong\\qlsanbong\\fhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0EF32F65-DD45-44DE-A08D-F8E7F1D82AA4}|QLSanBong\\QLSanBong.csproj|solutionrelative:qlsanbong\\fhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EF32F65-DD45-44DE-A08D-F8E7F1D82AA4}|QLSanBong\\QLSanBong.csproj|d:\\cong_nghe_phan_mem\\qlsanbong\\qlsanbong\\fhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EF32F65-DD45-44DE-A08D-F8E7F1D82AA4}|QLSanBong\\QLSanBong.csproj|solutionrelative:qlsanbong\\fhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "fHome.cs",
+              "DocumentMoniker": "D:\\Cong_Nghe_Phan_Mem\\QLSanBong\\QLSanBong\\fHome.cs",
+              "RelativeDocumentMoniker": "QLSanBong\\fHome.cs",
+              "ToolTip": "D:\\Cong_Nghe_Phan_Mem\\QLSanBong\\QLSanBong\\fHome.cs",
+              "RelativeToolTip": "QLSanBong\\fHome.cs",
+              "ViewState": "AQIAAN8AAAAAAAAAAIA8wO0AAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T13:54:42.993Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "fHome.cs [Design]",
+              "DocumentMoniker": "D:\\Cong_Nghe_Phan_Mem\\QLSanBong\\QLSanBong\\fHome.cs",
+              "RelativeDocumentMoniker": "QLSanBong\\fHome.cs",
+              "ToolTip": "D:\\Cong_Nghe_Phan_Mem\\QLSanBong\\QLSanBong\\fHome.cs [Design]",
+              "RelativeToolTip": "QLSanBong\\fHome.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T13:54:16.354Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

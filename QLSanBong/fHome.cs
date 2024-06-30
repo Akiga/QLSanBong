@@ -114,26 +114,35 @@ namespace QLSanBong
         {
             if (dtgvBill.SelectedCells.Count > 0)
             {
-                int id = (int)dtgvBill.SelectedCells[0].OwningRow.Cells["idStadium"].Value;
-
-                Stadium category = StadiumDAO.Instance.getStadiumById(id);
-
-                cbStadium.SelectedItem = category;
-
-                int index = -1;
-                int i = 0;
-
-                foreach (Stadium item in cbStadium.Items)
+                if (dtgvBill.SelectedCells.Count > 0)
                 {
-                    if (item.ID == category.ID)
+                    var selectedCell = dtgvBill.SelectedCells[0];
+                    var owningRow = selectedCell.OwningRow;
+                    if (owningRow.Cells["idStadium"].Value != null)
                     {
-                        index = i;
-                        break;
-                    }
-                    i++;
+                        int id = (int)dtgvBill.SelectedCells[0].OwningRow.Cells["idStadium"].Value;
 
+                        Stadium category = StadiumDAO.Instance.getStadiumById(id);
+
+                        cbStadium.SelectedItem = category;
+
+                        int index = -1;
+                        int i = 0;
+
+                        foreach (Stadium item in cbStadium.Items)
+                        {
+                            if (item.ID == category.ID)
+                            {
+                                index = i;
+                                break;
+                            }
+                            i++;
+
+                        }
+                        cbStadium.SelectedIndex = index;
+                    }
                 }
-                cbStadium.SelectedIndex = index;
+
             }
         }
 
@@ -167,34 +176,66 @@ namespace QLSanBong
 
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
-            //int id = Convert.ToInt32(txtID.Text);
-
-            //// Gọi phương thức insertCus từ CustomerDAO
-            //if (CustomerDAO.Instance.checkOut(id))
-            //{
-            //    MessageBox.Show("Thanh toán thành công");
-            //    LoadList(); // Cập nhật danh sách khách hàng sau khi thêm thành công
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Có lỗi khi thanh toán khách hàng.");
-            //}
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            int id = Convert.ToInt32(txtID.Text);
-
-            // Gọi phương thức insertCus từ CustomerDAO
-            if (CustomerDAO.Instance.deleteCus(id))
+            int id;
+            if (int.TryParse(txtID.Text, out id))
             {
-                MessageBox.Show("Xóa thành công");
-                LoadList(); // Cập nhật danh sách khách hàng sau khi thêm thành công
+                // Gọi phương thức insertCus từ CustomerDAO
+                if (CustomerDAO.Instance.checkOut(id))
+                {
+                    MessageBox.Show("Thanh toán thành công");
+                    LoadList(); // Cập nhật danh sách khách hàng sau khi thêm thành công
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi khi thanh toán khách hàng.");
+                }
             }
             else
             {
-                MessageBox.Show("Có lỗi khi xóa khách hàng.");
+                MessageBox.Show("Có lỗi");
             }
+        }
+
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int id;
+
+            if(int.TryParse(txtID.Text,out id))
+            {
+                // Gọi phương thức insertCus từ CustomerDAO
+                if (CustomerDAO.Instance.deleteCus(id))
+                {
+                    MessageBox.Show("Xóa thành công");
+                    LoadList(); // Cập nhật danh sách khách hàng sau khi thêm thành công
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi khi xóa khách hàng.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi");
+            }
+            
+        }
+
+        List<Customer> Search(int phone)
+        {
+            List<Customer> customers = CustomerDAO.Instance.SearchPhone(phone);
+
+            return customers;
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            List.DataSource = Search(Convert.ToInt32(txtSearchName.Text));
+        }
+
+        private void btnXem_Click(object sender, EventArgs e)
+        {
+            LoadList();
         }
     }
 }
