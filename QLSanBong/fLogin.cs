@@ -35,6 +35,7 @@ namespace QLSanBong
                 this.Hide();
                 f.ShowDialog();
                 this.Show();
+                txtPassword.Text = "";
             }
             else
             {

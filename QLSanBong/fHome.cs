@@ -52,7 +52,6 @@ namespace QLSanBong
         private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fAccountProfile f = new fAccountProfile(LoginAccount);
-
             f.ShowDialog();
         }
 

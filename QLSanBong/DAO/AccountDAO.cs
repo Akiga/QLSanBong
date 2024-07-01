@@ -40,10 +40,47 @@ namespace QLSanBong.DAO
             return null;
         }
 
+        public DataTable GetListAccount()
+        {
+            return dataProvider.Instance.ExecuteQuery("select UserName, DisplayName, type from Account");
+        }
+
         public bool UpdateAccount(string userName, string displayName, string pass, string newPass)
         {
             int result = dataProvider.Instance.ExecuteNonQuery("exec USP_UpdateAccount @userName , @displayName , @password , @newPassword ", new object[] { userName, displayName, pass, newPass });
 
+            return result > 0;
+        }
+
+        public bool insertAccount(string userName, string displayName, int type)
+        {
+            string query = string.Format("insert Account (Username , DisplayName , type) values ('{0}' , '{1}' , {2})", userName , displayName, type);
+
+            int result = dataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool updateAccount(string userName, string displayName, int type)
+        {
+            string query = string.Format("Update Account set Displayname = N'{1}' , type = {2} where userName = N'{0}'", userName, displayName, type);
+
+            int result = dataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool deleteAccount(string name)
+        {
+            string query = string.Format("delete Account where Username = N'{0}'",name);
+
+            int result = dataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool resetPass(string name)
+        {
+            string query = string.Format("update Account set password = N'0' where Username = N'{0}'", name);
+
+            int result = dataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
     }

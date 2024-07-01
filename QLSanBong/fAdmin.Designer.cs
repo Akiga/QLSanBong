@@ -33,7 +33,6 @@
             this.panel20 = new System.Windows.Forms.Panel();
             this.btnResetPassWord = new System.Windows.Forms.Button();
             this.panel21 = new System.Windows.Forms.Panel();
-            this.cbAccountType = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel22 = new System.Windows.Forms.Panel();
             this.txtAccountName = new System.Windows.Forms.TextBox();
@@ -54,6 +53,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtgvBill = new System.Windows.Forms.DataGridView();
             this.tc = new System.Windows.Forms.TabControl();
+            this.nmType = new System.Windows.Forms.NumericUpDown();
             this.tbAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).BeginInit();
             this.panel20.SuspendLayout();
@@ -66,6 +66,7 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).BeginInit();
             this.tc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmType)).BeginInit();
             this.SuspendLayout();
             // 
             // tbAccount
@@ -76,13 +77,14 @@
             this.tbAccount.Location = new System.Drawing.Point(4, 22);
             this.tbAccount.Name = "tbAccount";
             this.tbAccount.Padding = new System.Windows.Forms.Padding(3);
-            this.tbAccount.Size = new System.Drawing.Size(634, 437);
+            this.tbAccount.Size = new System.Drawing.Size(634, 427);
             this.tbAccount.TabIndex = 4;
             this.tbAccount.Text = "Tài khoản";
             this.tbAccount.UseVisualStyleBackColor = true;
             // 
             // dtgvAccount
             // 
+            this.dtgvAccount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvAccount.Location = new System.Drawing.Point(6, 60);
             this.dtgvAccount.Name = "dtgvAccount";
@@ -108,23 +110,16 @@
             this.btnResetPassWord.TabIndex = 8;
             this.btnResetPassWord.Text = "Đặt lại mật khẩu";
             this.btnResetPassWord.UseVisualStyleBackColor = true;
+            this.btnResetPassWord.Click += new System.EventHandler(this.btnResetPassWord_Click);
             // 
             // panel21
             // 
-            this.panel21.Controls.Add(this.cbAccountType);
+            this.panel21.Controls.Add(this.nmType);
             this.panel21.Controls.Add(this.label9);
             this.panel21.Location = new System.Drawing.Point(3, 133);
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(254, 59);
             this.panel21.TabIndex = 3;
-            // 
-            // cbAccountType
-            // 
-            this.cbAccountType.FormattingEnabled = true;
-            this.cbAccountType.Location = new System.Drawing.Point(139, 21);
-            this.cbAccountType.Name = "cbAccountType";
-            this.cbAccountType.Size = new System.Drawing.Size(107, 21);
-            this.cbAccountType.TabIndex = 1;
             // 
             // label9
             // 
@@ -175,7 +170,6 @@
             // 
             this.txtUserName.Location = new System.Drawing.Point(139, 20);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.ReadOnly = true;
             this.txtUserName.Size = new System.Drawing.Size(107, 20);
             this.txtUserName.TabIndex = 1;
             // 
@@ -208,6 +202,7 @@
             this.btnShowAccount.TabIndex = 7;
             this.btnShowAccount.Text = "Xem";
             this.btnShowAccount.UseVisualStyleBackColor = true;
+            this.btnShowAccount.Click += new System.EventHandler(this.btnShowAccount_Click);
             // 
             // btnEditAccount
             // 
@@ -217,6 +212,7 @@
             this.btnEditAccount.TabIndex = 6;
             this.btnEditAccount.Text = "Sửa";
             this.btnEditAccount.UseVisualStyleBackColor = true;
+            this.btnEditAccount.Click += new System.EventHandler(this.btnEditAccount_Click);
             // 
             // btnDeleteAccount
             // 
@@ -226,6 +222,7 @@
             this.btnDeleteAccount.TabIndex = 5;
             this.btnDeleteAccount.Text = "Xóa";
             this.btnDeleteAccount.UseVisualStyleBackColor = true;
+            this.btnDeleteAccount.Click += new System.EventHandler(this.btnDeleteAccount_Click);
             // 
             // btnAddAccount
             // 
@@ -235,6 +232,7 @@
             this.btnAddAccount.TabIndex = 4;
             this.btnAddAccount.Text = "Thêm";
             this.btnAddAccount.UseVisualStyleBackColor = true;
+            this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
             // 
             // tbBill
             // 
@@ -310,6 +308,18 @@
             this.tc.Size = new System.Drawing.Size(642, 453);
             this.tc.TabIndex = 1;
             // 
+            // nmType
+            // 
+            this.nmType.Location = new System.Drawing.Point(139, 19);
+            this.nmType.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nmType.Name = "nmType";
+            this.nmType.Size = new System.Drawing.Size(38, 20);
+            this.nmType.TabIndex = 1;
+            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -334,6 +344,7 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).EndInit();
             this.tc.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nmType)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -345,7 +356,6 @@
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Button btnResetPassWord;
         private System.Windows.Forms.Panel panel21;
-        private System.Windows.Forms.ComboBox cbAccountType;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.TextBox txtAccountName;
@@ -366,5 +376,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dtgvBill;
         private System.Windows.Forms.TabControl tc;
+        private System.Windows.Forms.NumericUpDown nmType;
     }
 }

@@ -278,3 +278,9 @@ begin
 	from Bill where DateCheckIn >= @checkIn and DateCheckOut <= @checkOut
 end 
 go
+
+----------------------------------
+-- quan ly account
+
+select UserName, DisplayName, type from Account
+select * from Account

@@ -62,7 +62,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(277, 22);
             this.txtPassword.TabIndex = 2;
-            this.txtPassword.Text = "1";
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtUserName
             // 
@@ -70,14 +70,13 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(277, 22);
             this.txtUserName.TabIndex = 1;
-            this.txtUserName.Text = "Akiga";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Location = new System.Drawing.Point(15, 153);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(73, 16);
+            this.lblPassword.Size = new System.Drawing.Size(76, 16);
             this.lblPassword.TabIndex = 0;
             this.lblPassword.Text = "Mật khẩu:";
             // 
@@ -86,7 +85,7 @@
             this.lblLogin.AutoSize = true;
             this.lblLogin.Location = new System.Drawing.Point(15, 85);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(123, 16);
+            this.lblLogin.Size = new System.Drawing.Size(128, 16);
             this.lblLogin.TabIndex = 0;
             this.lblLogin.Text = "Tên Đăng Nhập: ";
             // 
