@@ -8,9 +8,6 @@ go
 -- Bill
 -- Stadium
 -- Customer
-select * from Bill
-select * from Customer
-select * from Stadium
 
 drop table Account
 create table Account
@@ -19,6 +16,14 @@ create table Account
 	DisplayName nvarchar(100) not null,
 	Password Nvarchar(100) not null default 0,
 	type int not null default 0
+)
+go
+
+drop table Stadium
+create table Stadium
+(
+	id int identity primary key,
+	Ten nvarchar(100) not null default N'Chưa có tên'
 )
 go
 
@@ -38,21 +43,6 @@ create table Customer
 )
 go
 
-select * from Customer
-
-drop table Stadium
-create table Stadium
-(
-	id int identity primary key,
-	Ten nvarchar(100) not null default N'Chưa có tên'
-)
-go
-
-
-select * from Customer
-select * from Bill
-
-
 drop table Bill
 create table Bill
 (	
@@ -69,48 +59,26 @@ create table Bill
 )
 go
 
-delete Bill
-select * from Bill
-
-
+select * from Account
 insert into dbo.Account(
 	UserName,
 	DisplayName,
 	Password,
-	type
-	)
+	type)
 values(N'Staff',
 	N'Staff',
 	N'1',
-	0
-)
-
+	0)
 
 insert into dbo.Account(
 	UserName,
 	DisplayName,
 	Password,
-	type
-	)
-values(N'Akiga',
+	type)
+values(N'Sasimi',
 	N'manh',
 	N'1',
-	1
-)
-
-select * from dbo.Account
-
-drop proc USP_GetAcountByUserName
-create proc USP_GetAcountByUserName
-@userName nvarchar(100)
-as
-begin
-	select * from dbo.Account Where UserName = @userName
-end
-go
-
-EXEC dbo.USP_GetAcountByUserName @userName = N'Akiga'
-go
+	1)
 
 drop proc USP_Login
 create proc USP_Login
@@ -151,14 +119,10 @@ go
 
 while @i <= 10
 begin
-	insert dbo.Stadium(Ten) values (N'Sân' + Cast (@i as nvarchar(100)))
+	insert dbo.Stadium(Ten) values (N'Sân ' + Cast (@i as nvarchar(100)))
 	set @i = @i + 1
 end
 go
-
-select * from Stadium
-delete Stadium
-
 
 ---------------------------------
 -- thêm khách hàng
@@ -173,7 +137,7 @@ CREATE PROCEDURE AddCustomer
 AS
 BEGIN
     DECLARE @StadiumId INT;
-    DECLARE @InsertedStadiumName NVARCHAR(100); -- Biến để lưu trữ tên sân vận động đã được thêm vào
+    DECLARE @InsertedStadiumName NVARCHAR(100);
 
     -- Kiểm tra xem sân vận động đã tồn tại hay chưa
     IF NOT EXISTS (SELECT 1 FROM Stadium WHERE Ten = @StadiumName)
@@ -190,23 +154,37 @@ BEGIN
         SET @InsertedStadiumName = @StadiumName; -- Lưu tên sân vận động đã tồn tại
     END
 
-    -- Thêm thông tin khách hàng vào bảng Customer
-    INSERT INTO Customer (CustomerName, CustomerPhone, Price, DateCheckIn, DateCheckOut, idStadium)
-    VALUES (@CustomerName, @CustomerPhone, @Price, @DateCheckIn, @DateCheckOut, @StadiumId);
+    -- Kiểm tra xem đã có đặt chỗ nào trùng giờ và trùng sân vận động không
+    IF NOT EXISTS (
+        SELECT 1
+        FROM Customer
+        WHERE idStadium = @StadiumId
+        AND (
+            (@DateCheckIn < DateCheckOut AND @DateCheckOut > DateCheckIn) -- Kiểm tra sự trùng lặp của thời gian
+        )
+    )
+    BEGIN
+        -- Thêm thông tin khách hàng vào bảng Customer
+        INSERT INTO Customer (CustomerName, CustomerPhone, Price, DateCheckIn, DateCheckOut, idStadium)
+        VALUES (@CustomerName, @CustomerPhone, @Price, @DateCheckIn, @DateCheckOut, @StadiumId);
 
-    -- Trả về ID của khách hàng vừa được thêm vào và tên sân vận động
-    SELECT SCOPE_IDENTITY() AS CustomerID, @InsertedStadiumName AS StadiumName;
+        -- Trả về ID của khách hàng vừa được thêm vào và tên sân vận động
+        SELECT SCOPE_IDENTITY() AS CustomerID, @InsertedStadiumName AS StadiumName;
+    END
+    ELSE
+    BEGIN
+        -- Trả về thông báo lỗi nếu có trùng lặp thời gian và sân vận động
+        RAISERROR ('Đã có đặt chỗ trùng giờ cho sân vận động này.', 16, 1);
+    END
 END;
+GO
+
 
 
 --------------------------------------
 --Sửa
-delete Customer
-select * from Customer
-select * from Stadium
 Update Customer set CustomerName = N'', CustomerPhone = 132, price = 100, DateCheckIn = N'', DateCheckOut = N'', idStadium = 2 where id = 4
 
-drop proc UpdateCustomer
 CREATE PROCEDURE UpdateCustomer
     @CustomerID INT,
     @CustomerName NVARCHAR(100),
@@ -235,21 +213,13 @@ begin
 end
 go
 
-exec cusAndSta
-
-
-
 --------------------------------
 -- Xóa 
-
-select * from Customer
-
-
 delete Customer where id = 12
 
 ------------------------------------
 --Thanh Toán
-alter proc MoveCusToBill
+create proc MoveCusToBill
 @id int
 as
 begin
@@ -262,13 +232,9 @@ begin
     DELETE FROM Customer where id = @id
 end
 go
-select * from Customer
-select * from Bill
-exec MoveCusToBill @id = 4
 
 ----------------------------
 -- danh sách hóa đơn
-
 
 create proc USP_GetListBillByDate
 @checkIn date, @checkOut date
@@ -278,9 +244,3 @@ begin
 	from Bill where DateCheckIn >= @checkIn and DateCheckOut <= @checkOut
 end 
 go
-
-----------------------------------
--- quan ly account
-
-select UserName, DisplayName, type from Account
-select * from Account

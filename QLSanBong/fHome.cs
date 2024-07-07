@@ -49,6 +49,7 @@ namespace QLSanBong
             adminToolStripMenuItem.Enabled = type == 1;
             thôngTinCáNhânToolStripMenuItem.Text += " (" + LoginAccount.DisplayName + ")";
         }
+
         private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fAccountProfile f = new fAccountProfile(LoginAccount);
@@ -60,7 +61,6 @@ namespace QLSanBong
             fAdmin f = new fAdmin();
             f.ShowDialog();
         }
-
 
         void LoadStadiumIntoComboBox(ComboBox cb)
         {
@@ -74,22 +74,29 @@ namespace QLSanBong
 
         void addBinding()
         {
-            txtID.DataBindings.Add(new Binding("Text", dtgvBill.DataSource, "ID"));
-            txtName.DataBindings.Add(new Binding("Text", dtgvBill.DataSource, "Name"));
-            txtPhone.DataBindings.Add(new Binding("Text", dtgvBill.DataSource, "Phone"));
-            txtTimeS.DataBindings.Add(new Binding("Text",dtgvBill.DataSource, "DateCheckIn"));
-            txtTimeE.DataBindings.Add(new Binding("Text", dtgvBill.DataSource, "DateCheckOut"));
-            nmPrice.DataBindings.Add(new Binding("Value", dtgvBill.DataSource, "Price"));
+            txtID.DataBindings.Add(new Binding("Text", dtgvBill.DataSource, "ID", true, DataSourceUpdateMode.Never));
+            txtName.DataBindings.Add(new Binding("Text", dtgvBill.DataSource, "Name", true, DataSourceUpdateMode.Never));
+            txtPhone.DataBindings.Add(new Binding("Text", dtgvBill.DataSource, "Phone", true, DataSourceUpdateMode.Never));
+            txtTimeS.DataBindings.Add(new Binding("Text",dtgvBill.DataSource, "DateCheckIn", true, DataSourceUpdateMode.Never));
+            txtTimeE.DataBindings.Add(new Binding("Text", dtgvBill.DataSource, "DateCheckOut", true, DataSourceUpdateMode.Never));
+            txtPrice.DataBindings.Add(new Binding("Text", dtgvBill.DataSource, "Price", true, DataSourceUpdateMode.Never));
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             string name = txtName.Text;
-            float price = (float)nmPrice.Value;
+            float price = (Convert.ToInt32(txtTimeE.Text) - Convert.ToInt32(txtTimeS.Text)) * 100;
             int phone;
             string checkIn = txtTimeS.Text;
             string checkOut = txtTimeE.Text;
             string stadium = cbStadium.Text;
+
+            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(checkIn) || string.IsNullOrWhiteSpace(checkOut) || string.IsNullOrWhiteSpace(stadium))
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin.");
+                return;
+            }
+
             // Kiểm tra và chuyển đổi số điện thoại
             if (!int.TryParse(txtPhone.Text, out phone))
             {
@@ -102,10 +109,6 @@ namespace QLSanBong
             {
                 MessageBox.Show("Thêm Thành Công");
                 LoadList(); // Cập nhật danh sách khách hàng sau khi thêm thành công
-            }
-            else
-            {
-                MessageBox.Show("Có lỗi khi thêm khách hàng.");
             }
         }
 
@@ -148,7 +151,7 @@ namespace QLSanBong
         private void txtEdit_Click(object sender, EventArgs e)
         {
             string name = txtName.Text;
-            float price = (float)nmPrice.Value;
+            float price = (Convert.ToInt32(txtTimeE.Text) - Convert.ToInt32(txtTimeS.Text)) *100;
             int phone;
             string checkIn = txtTimeS.Text;
             string checkOut = txtTimeE.Text;
@@ -194,7 +197,6 @@ namespace QLSanBong
                 MessageBox.Show("Có lỗi");
             }
         }
-
 
         private void btnDelete_Click(object sender, EventArgs e)
         {

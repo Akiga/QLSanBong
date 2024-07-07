@@ -2,9 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace QLSanBong.DAO
 {
@@ -38,14 +40,22 @@ namespace QLSanBong.DAO
 
         public bool insertCus(string name, int phone, float price, string checkIn, string checkOut, string stadium)
         {
-            int result = dataProvider.Instance.ExecuteNonQuery("exec AddCustomer @CustomerName , @CustomerPhone , @Price , @DateCheckIn , @DateCheckOut , @StadiumName", new object[] {name, phone, price, checkIn, checkOut, stadium});
-            return result > 0;
+            try
+            {
+                int result = dataProvider.Instance.ExecuteNonQuery("exec AddCustomer @CustomerName , @CustomerPhone , @Price , @DateCheckIn , @DateCheckOut , @StadiumName",
+                    new object[] { name, phone, price, checkIn, checkOut, stadium });
+                return result > 0;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi khi thêm khách hàng: " + ex.Message);
+                return false;
+            }
         }
 
         public bool updateCus(int id,string name, int phone, float price, string checkIn, string checkOut, int idStadium)
         {
             string query = string.Format("Update Customer set CustomerName = N'{0}', CustomerPhone = {1}, price = {2}, DateCheckIn = N'{3}', DateCheckOut = N'{4}', idStadium = {5} where id = {6}", name, phone, price, checkIn, checkOut, idStadium, id);
-
 
             int result = dataProvider.Instance.ExecuteNonQuery(query);
             //int result = dataProvider.Instance.ExecuteNonQuery("exec UpdateCustomer @CustomerID , @CustomerName , @CustomerPhone , @Price , @DateCheckIn , @DateCheckOut", new object[] {id, name, phone, price, checkIn, checkOut});

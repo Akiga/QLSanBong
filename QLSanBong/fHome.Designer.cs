@@ -35,6 +35,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.dtgvBill = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnXem = new System.Windows.Forms.Button();
             this.txtSearchName = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -42,7 +43,6 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.nmPrice = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtEdit = new System.Windows.Forms.Button();
@@ -62,14 +62,13 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.cbStadium = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnXem = new System.Windows.Forms.Button();
+            this.txtPrice = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmPrice)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -142,9 +141,19 @@
             this.panel5.Size = new System.Drawing.Size(784, 48);
             this.panel5.TabIndex = 3;
             // 
+            // btnXem
+            // 
+            this.btnXem.Location = new System.Drawing.Point(3, 3);
+            this.btnXem.Name = "btnXem";
+            this.btnXem.Size = new System.Drawing.Size(85, 42);
+            this.btnXem.TabIndex = 6;
+            this.btnXem.Text = "Refresh";
+            this.btnXem.UseVisualStyleBackColor = true;
+            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
+            // 
             // txtSearchName
             // 
-            this.txtSearchName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchName.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearchName.Location = new System.Drawing.Point(91, 3);
             this.txtSearchName.Multiline = true;
             this.txtSearchName.Name = "txtSearchName";
@@ -206,30 +215,12 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.nmPrice);
+            this.panel7.Controls.Add(this.txtPrice);
             this.panel7.Controls.Add(this.label6);
             this.panel7.Location = new System.Drawing.Point(3, 134);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(254, 46);
             this.panel7.TabIndex = 7;
-            // 
-            // nmPrice
-            // 
-            this.nmPrice.Increment = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.nmPrice.Location = new System.Drawing.Point(119, 14);
-            this.nmPrice.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nmPrice.Name = "nmPrice";
-            this.nmPrice.Size = new System.Drawing.Size(127, 22);
-            this.nmPrice.TabIndex = 1;
-            this.nmPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 
@@ -407,15 +398,14 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Sân:";
             // 
-            // btnXem
+            // txtPrice
             // 
-            this.btnXem.Location = new System.Drawing.Point(3, 3);
-            this.btnXem.Name = "btnXem";
-            this.btnXem.Size = new System.Drawing.Size(85, 42);
-            this.btnXem.TabIndex = 6;
-            this.btnXem.Text = "Refresh";
-            this.btnXem.UseVisualStyleBackColor = true;
-            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
+            this.txtPrice.Location = new System.Drawing.Point(119, 14);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.ReadOnly = true;
+            this.txtPrice.Size = new System.Drawing.Size(127, 22);
+            this.txtPrice.TabIndex = 2;
+            this.txtPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // fHome
             // 
@@ -432,7 +422,7 @@
             this.MaximizeBox = false;
             this.Name = "fHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "fHome";
+            this.Text = "Trang chủ";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).EndInit();
@@ -443,7 +433,6 @@
             this.panel10.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmPrice)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -490,12 +479,12 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnCheckOut;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.NumericUpDown nmPrice;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button txtEdit;
         private System.Windows.Forms.Button btnXem;
+        private System.Windows.Forms.TextBox txtPrice;
     }
 }

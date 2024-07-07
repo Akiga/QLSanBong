@@ -33,6 +33,7 @@
             this.panel20 = new System.Windows.Forms.Panel();
             this.btnResetPassWord = new System.Windows.Forms.Button();
             this.panel21 = new System.Windows.Forms.Panel();
+            this.nmType = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
             this.panel22 = new System.Windows.Forms.Panel();
             this.txtAccountName = new System.Windows.Forms.TextBox();
@@ -53,11 +54,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtgvBill = new System.Windows.Forms.DataGridView();
             this.tc = new System.Windows.Forms.TabControl();
-            this.nmType = new System.Windows.Forms.NumericUpDown();
             this.tbAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).BeginInit();
             this.panel20.SuspendLayout();
             this.panel21.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmType)).BeginInit();
             this.panel22.SuspendLayout();
             this.panel23.SuspendLayout();
             this.panel24.SuspendLayout();
@@ -66,7 +67,6 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).BeginInit();
             this.tc.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmType)).BeginInit();
             this.SuspendLayout();
             // 
             // tbAccount
@@ -120,6 +120,18 @@
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(254, 59);
             this.panel21.TabIndex = 3;
+            // 
+            // nmType
+            // 
+            this.nmType.Location = new System.Drawing.Point(139, 19);
+            this.nmType.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nmType.Name = "nmType";
+            this.nmType.Size = new System.Drawing.Size(38, 20);
+            this.nmType.TabIndex = 1;
             // 
             // label9
             // 
@@ -308,18 +320,6 @@
             this.tc.Size = new System.Drawing.Size(642, 453);
             this.tc.TabIndex = 1;
             // 
-            // nmType
-            // 
-            this.nmType.Location = new System.Drawing.Point(139, 19);
-            this.nmType.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nmType.Name = "nmType";
-            this.nmType.Size = new System.Drawing.Size(38, 20);
-            this.nmType.TabIndex = 1;
-            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -328,12 +328,13 @@
             this.Controls.Add(this.tc);
             this.Name = "fAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "fAdmin";
+            this.Text = "Admin";
             this.tbAccount.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).EndInit();
             this.panel20.ResumeLayout(false);
             this.panel21.ResumeLayout(false);
             this.panel21.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmType)).EndInit();
             this.panel22.ResumeLayout(false);
             this.panel22.PerformLayout();
             this.panel23.ResumeLayout(false);
@@ -344,7 +345,6 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).EndInit();
             this.tc.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nmType)).EndInit();
             this.ResumeLayout(false);
 
         }
